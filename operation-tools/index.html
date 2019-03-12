@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运维工具首页</title>
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css"/>
+    <style type="text/css">
+        .split-line {
+            position: relative;
+            line-height: 50px;
+            height: 50px;
+        }
+        .split-line .line{
+            display: inline-block;
+            background-color: #00CCFF;
+            width: 591px;
+            height: 1px;
+            margin-right: 15px;
+        }
+
+        .split-line .tip{
+            display: inline-block;
+            position: absolute;
+            top: 4px;
+            text-decoration: none;
+        }
+
+        .pointer{
+            cursor: pointer;
+        }
+        .ot_tabs{
+            position: relative;
+            border: 1px solid #CCCCCC;
+            display: block;
+            margin-top: 35px;
+            min-height: 200px;
+        }
+        .ot_tabs_title {
+            position: absolute;
+            top: -34px;
+            left: -1px;
+        }
+        .ot_tabs_title .left{
+            border-bottom-left-radius: 0px;
+        }
+        .ot_form_row{
+            display: block;
+            margin: 10px;
+        }
+
+    </style>
+    <script type="text/javascript" src="../public/vue/vue.js"></script>
+</head>
+<body>
+    <div id="example" class="container">
+        <div class="split-line"  data-label="模拟水平线" >
+            <span class="line"></span>
+            <a class="pointer tip">+ 请求条件</a>
+        </div>
+
+
+        <div class="ot_tabs">
+            <div class="btn-group ot_tabs_title" role="group" aria-label="...">
+                <button type="button" class="btn btn-default active left" data-name="content1">生产机器</button>
+                <button type="button" class="btn btn-default" data-name="content2">跟踪带</button>
+            </div>
+
+            <div id="content1">
+                <form id="form1" >
+                    <div class="form-group ot_form_row">
+                        <label for="ticked_no" class="col-sm-1 control-label">票号：</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" id="ticked_no"  />
+                        </div>
+                        <label for="start_date" class="col-sm-1 control-label">时间</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" id="start_date"  />
+                        </div>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" id="end_date"  />
+                        </div>
+                    </div>
+
+                    <div class="form-group ot_form_row">
+                        <label for="env_ip" class="col-sm-1 control-label">环境：</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" id="env_ip"  />
+                        </div>
+
+                        <div class="col-md-3">
+                            <button class="btn btn-primary"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="content2">
+
+            </div>
+
+        </div>
+
+
+
+
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#example',
+            data: {
+                message: 'Hello'
+            },
+            computed: {
+                // 计算属性的 getter
+                reversedMessage: function () {
+                    // `this` 指向 vm 实例
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
