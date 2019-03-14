@@ -1,0 +1,23 @@
+{
+  "name": "static-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yichengjie/static-html.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yichengjie/static-html/issues"
+  },
+  "homepage": "https://github.com/yichengjie/static-html#readme",
+  "dependencies": {
+    "jquery.easyui": "^1.0.0",
+    "jquery.json-viewer": "^1.2.0"
+  }
+}

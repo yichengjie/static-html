@@ -1,0 +1,191 @@
+body{
+    background-color: #F2F4F7;
+    min-width: 768px;
+    font-size: 14px;
+    /*font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;*/
+    font-family: Microsoft YaHei,simsun,sans-serif;
+}
+.main_content{
+    margin: 10px 20px;
+    height: 100%;
+}
+.query_section{
+    padding: 10px 10px;
+}
+.query_row{
+    display: block;
+    margin: 5px;
+}
+
+.moni-input{
+    width: 100%;
+    height: 200px;
+}
+
+/**查询条件相关 end*/
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+.marginLR5{
+    margin :0 5px;
+}
+.marginL10{
+    margin-left: 10px;
+}
+.marginR10{
+    margin-right: 10px;
+}
+.marginLR10{
+    margin :0 10px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+.marginLR15{
+    margin :0 15px;
+}
+.marginT10{
+    margin-top: 10px;
+}
+.marginT15{
+    margin-top: 15px;
+}
+.marginT20{
+    margin-top: 20px;
+}
+.myhand{
+    cursor: pointer;
+}
+.gray { color:#CCCCCC;}
+.red { color:#FF0000;}
+.orange { color:#FF9900;}
+.blue { color:#006699;}
+.bold { font-weight:bold;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
+.txt_right{ text-align:right;}
+.iconfont_box{
+    margin-left: -25px !important;
+    cursor: pointer;
+}
+.iconfont_box:after{
+    content: '';
+    display: inline-block;
+    margin-left: 12px;
+}
+.inline_block{
+    display: inline-block !important;
+}
+
+
+.two_input{
+    width:48%;
+}
+.query_row .title{
+    font-weight: 700;
+}
+.query_row .glyphicon-calendar{
+    opacity:0.7;
+}
+
+.split-line {
+    position: relative;
+    line-height: 50px;
+    height: 50px;
+}
+.split-line .line{
+    position: absolute;
+    display: inline-block;
+    background-color: #00CCFF;
+    left: 0px;
+    right: 75px;
+    top: 25px;
+    height: 1px;
+    margin-right: 15px;
+}
+
+.split-line .tip{
+    display: inline-block;
+    position: absolute;
+    right: 2px;
+    text-decoration: none;
+}
+
+
+.input-label{
+    display: inline-block;
+    letter-spacing: 0.05em;
+    width: 40px;
+}
+
+.input-split-line{
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    width: 30px;
+}
+
+.input-split-line .line{
+    display: inline-block;
+    height: 2px;
+    width: 20px;
+    border-top: 1px solid black;
+    margin-left: 5px;
+}
+
+.pointer{
+    cursor: pointer;
+}
+.ot_tabs{
+    position: relative;
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin-top: 35px;
+    min-height: 100px;
+}
+.ot_tabs_title {
+    position: absolute;
+    top: -34px;
+    left: -1px;
+}
+.ot_tabs_title .left{
+    border-bottom-left-radius: 0px;
+}
+.ot_tabs_title .active{
+    background-color: #CCCCCC;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../public/json-tree-viewer/libs/app/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../public/json-tree-viewer/libs/jsonTree/jsonTree.css"/>
+    <link rel="stylesheet" href="../public/easy-ui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../public/easy-ui/themes/icon.css"/>
+    <script type="text/javascript" src="../public/easy-ui/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/easy-ui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../public/json-tree-viewer/libs/jsonTree/jsonTree.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <style type="text/css">
+        #wrapper .jsontree_tree {
+            margin-left: 0px;
+        }
+        .json-view-title{
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="tree">
+    <div class="json-view-title">
+        <input id="sb" class="easyui-switchbutton"
+               checked style="width:100px;height:30px"
+               data-options="onText:'展开',offText:'折叠'"/>
+    </div>
+    <div id="wrapper"></div>
+</div>
+
+
+<script type="text/javascript">
+    var wrapper = document.getElementById("wrapper");
+    var example = {
+        "firstName": "John",
+        "lastName": "Smith",
+        "isAlive": true,
+        "age": 25,
+        "company": null,
+        "height_cm": 167.64,
+        "address": {
+            "streetAddress": "21 2nd Street",
+            "city": "New York",
+            "state": "NY",
+            "postalCode": "10021-3100"
+        },
+        "phoneNumbers": [
+            {
+                "type": "home",
+                "number": "212 555-1234"
+            },
+            {
+                "type": "fax",
+                "number": "646 555-4567"
+            }
+        ]
+    };
+   // var data = getSimpleData() ;
+    var tree = jsonTree.create(example, wrapper);
+
+    tree.expand(function(node) {
+        return node.childNodes.length < 15 || node.label === 'NetFare';
+    });
+
+    //tree.expand() ;
+
+</script>
+</body>
+</html>

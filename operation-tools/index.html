@@ -3,101 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>运维工具首页</title>
-    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../public/pure/pure.css"/>
+    <link rel="stylesheet" href="index.css">
     <style type="text/css">
-        .split-line {
-            position: relative;
-            line-height: 50px;
-            height: 50px;
-        }
-        .split-line .line{
-            display: inline-block;
-            background-color: #00CCFF;
-            width: 591px;
-            height: 1px;
-            margin-right: 15px;
-        }
-
-        .split-line .tip{
-            display: inline-block;
-            position: absolute;
-            top: 4px;
-            text-decoration: none;
-        }
-
-        .pointer{
-            cursor: pointer;
-        }
-        .ot_tabs{
-            position: relative;
-            border: 1px solid #CCCCCC;
-            display: block;
-            margin-top: 35px;
-            min-height: 200px;
-        }
-        .ot_tabs_title {
-            position: absolute;
-            top: -34px;
-            left: -1px;
-        }
-        .ot_tabs_title .left{
-            border-bottom-left-radius: 0px;
-        }
-        .ot_form_row{
-            display: block;
-            margin: 10px;
-        }
 
     </style>
     <script type="text/javascript" src="../public/vue/vue.js"></script>
 </head>
 <body>
-    <div id="example" class="container">
+    <div id="example" class="main_content">
         <div class="split-line"  data-label="模拟水平线" >
             <span class="line"></span>
-            <a class="pointer tip">+ 请求条件</a>
+            <a class="pointer tip" href="javascript:void(0)">+ 请求条件</a>
         </div>
 
-
         <div class="ot_tabs">
-            <div class="btn-group ot_tabs_title" role="group" aria-label="...">
-                <button type="button" class="btn btn-default active left" data-name="content1">生产机器</button>
-                <button type="button" class="btn btn-default" data-name="content2">跟踪带</button>
+            <div class="pure-button-group ot_tabs_title" role="group" aria-label="...">
+                <button   v-bind:class="{ active: system == 'prod' }" class="pure-button" v-on:click="switchSystem" data-label="prod">生产机器</button>
+                <button  v-bind:class="{ active: system != 'prod' }" class="pure-button" v-on:click="switchSystem" data-label="trace">跟踪带</button>
             </div>
 
-            <div id="content1">
-                <form id="form1" >
-                    <div class="form-group ot_form_row">
-                        <label for="ticked_no" class="col-sm-1 control-label">票号：</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="text" id="ticked_no"  />
+            <div id="content1" class="query_section" v-if="system == 'prod'">
+                <form class="pure-form">
+
+                    <div class="pure-g query_row">
+                        <label for="tick_no" class="input-label">票号:</label>
+                        <input  id = "tick_no" type="email" class="pure-u-1-4">
+                        <span class="marginLR15"></span>
+
+                        <label for="time_start" class="input-label">时间:</label>
+                        <input id ="time_start" type="password" class="pure-u-1-8">
+
+                        <div class="input-split-line">
+                            <span class="line"></span>
                         </div>
-                        <label for="start_date" class="col-sm-1 control-label">时间</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="text" id="start_date"  />
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" type="text" id="end_date"  />
-                        </div>
+
+                        <input id ="time_end" type="password"  class="pure-u-1-8">
                     </div>
 
-                    <div class="form-group ot_form_row">
-                        <label for="env_ip" class="col-sm-1 control-label">环境：</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="text" id="env_ip"  />
-                        </div>
-
-                        <div class="col-md-3">
-                            <button class="btn btn-primary"></button>
+                    <div class="pure-g query_row">
+                        <label  class="input-label">环境:</label>
+                        <select  class="pure-u-1-4">
+                            <option>请选择</option>
+                            <option value="10.221.147.32">10.221.147.32</option>
+                        </select>
+                        <span class="marginLR15"></span>
+                        <div class="input-label"></div>
+                        <div style="display: inline-block;width:30px; "></div>
+                        <div class="pure-u-1-4" style="text-align: right;">
+                            <button class="pure-button button-secondary" >搜索请求</button>
                         </div>
                     </div>
                 </form>
             </div>
 
-            <div class="content2">
+            <div class="content2" v-if="system != 'prod'">
+                <form class="pure-form">
+                    <div class="pure-g query_row marginT15">
+                        <label for="tid" class="input-label">TID:</label>
 
+                        <input  id = "tid" type="email" class="pure-u-1-4">
+                        <span class="marginLR15"></span>
+                        <span class="marginLR15"></span>
+                        <label for="pnr" class="input-label">PNR:</label>
+                        <input  id = "pnr" type="email" class="pure-u-1-4">
+                    </div>
+
+                    <div class="pure-g query_row">
+                        <div style="display: inline-block;width:140px; "></div>
+                        <div class="pure-u-1-2" style="text-align: right;">
+                            <button class="pure-button button-secondary" >搜索请求</button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
+        </div>
+
+
+        <div class="split-line"  data-label="模拟水平线" >
+            <span class="line"></span>
+            <a class="pointer tip" href="javascript:void(0)">+ 模拟执行</a>
+        </div>
+
+
+        <textarea class="moni-input" placeholder="输入请求...."></textarea>
+
+        <div class="moni-form">
+            <form class="pure-form">
+                <div class="pure-g query_row marginT15">
+                    <label for="env" class="input-label">环境:</label>
+                    <select name="" id=""  class="pure-u-1-5">
+                        <option value="">请选择</option>
+                        <option value="10.221.147.32">10.221.147.32</option>
+                    </select>
+                    <span class="marginR15"></span>
+                    <label for="env" class="input-label">模块:</label>
+                    <select name="" id=""  class="pure-u-1-5">
+                        <option value="">请选择</option>
+                        <option value="10.221.147.32">10.221.147.32</option>
+                    </select>
+                    <span class="marginR15"></span>
+                    <label for="env" class="input-label" style="width: 50px;">服务名:</label>
+                    <select name="" id=""  class="pure-u-1-5">
+                        <option value="">请选择</option>
+                        <option value="10.221.147.32">10.221.147.32</option>
+                    </select>
+                    <span class="marginR15"></span>
+                    <div class="pure-u-1-5">
+                        <label for="option-one" class="pure-checkbox ">
+                            <input id="option-one" type="checkbox" value="">DEBUG模式
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pure-g">
+
+                </div>
+            </form>
         </div>
 
 
@@ -108,22 +132,6 @@
     </div>
 
 
-
-
-    <script type="text/javascript">
-        var vm = new Vue({
-            el: '#example',
-            data: {
-                message: 'Hello'
-            },
-            computed: {
-                // 计算属性的 getter
-                reversedMessage: function () {
-                    // `this` 指向 vm 实例
-                    return this.message.split('').reverse().join('')
-                }
-            }
-        })
-    </script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>

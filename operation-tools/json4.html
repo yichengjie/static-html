@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .string { color: green; }
+        .number { color: darkorange; }
+        .boolean { color: blue; }
+        .null { color: magenta; }
+        .key { color: red; }
+    </style>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+<h2>GeoJsonTxt示例如下：</h2>
+    <div>
+        <h4>注意：示例中<span style="color:red">features,geometry,coordinates,properties,name,description</span>字段是必须有的，
+            字段名称不能改变，需要扩展的字段可以在<span style="color:red">properties</span>里面自行添加</h4>
+    </div>
+	<pre id="geoJsonTxt"></pre>
+
+
+<script type="text/javascript">
+
+    function showGeoJsonTxt(){
+        $('#geoJsonTxt').html(JsonFormat());
+    }
+
+    function JsonFormat() {
+        var json = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            123,
+                            22,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "必须有的字段",
+                        "description": "必须有的字段",
+                        "age": "扩展字段，可以自行添加，扩展",
+                        "type": "扩展字段，可以自行添加，扩展"
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            123,
+                            32,
+                            0
+                        ]
+                    },
+                    "properties": {
+                        "name": "必须有的字段",
+                        "description": "必须有的字段",
+                    }
+                }
+            ]
+        };
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+    showGeoJsonTxt() ;
+</script>
+
+
+
+</body>
+</html>

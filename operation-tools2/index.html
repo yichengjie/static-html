@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运维工具</title>
+    <link rel="stylesheet" href="../public/easy-ui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../public/easy-ui/themes/icon.css"/>
+    <link href="../public/json-tree-viewer/libs/app/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../public/json-tree-viewer/libs/jsonTree/jsonTree.css"/>
+    <link rel="stylesheet" href="./index.css"/>
+
+    <script type="text/javascript" src="../public/easy-ui/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/easy-ui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../public/json-tree-viewer/libs/jsonTree/jsonTree.js"></script>
+</head>
+<body>
+    <div id="example" class="main_content">
+        <div class="split-line"  data-label="模拟水平线" >
+            <span class="line"></span>
+            <a class="pointer tip" href="javascript:void(0)">+ 请求条件</a>
+        </div>
+
+        <div id="tt" class="easyui-tabs" style="width:1000px;height:140px;">
+            <div title="生产机" style="padding:10px;display:none;">
+                <form id="ff" method="post">
+                    <table cellpadding="3">
+                        <tr>
+                            <td>票号:</td>
+                            <td><input class="easyui-textbox" type="text" name="name" /></td>
+                            <td width="50"></td>
+                            <td>时间:</td>
+                            <td><input class="easyui-textbox" type="text" name="email" /></td>
+                            <td><input class="easyui-textbox" type="text" name="email" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>环境:</td>
+                            <td>
+                                <select class="easyui-combobox" data-options="panelHeight:'auto'" name="language">
+                                     <option value="vi">请选择</option>
+                                    <option value="10.221.147.32">10.221.147.32</option>
+                                </select>
+                            </td>
+                            <td width="50"></td>
+                            <td></td>
+                            <td></td>
+                            <td align="right"><a href="#" class="easyui-linkbutton">搜索请求</a></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div title="跟踪带"  style="overflow:auto;padding:20px;display:none;">
+                <span class="marginR10">TID:</span><input class="easyui-textbox" type="text" name="name" />
+                <span class="marginR10 marginL20">PNR:</span><input class="easyui-textbox" type="text" name="name" />
+                <span class="marginLR20"></span>
+                <td align="right"><a href="#" class="easyui-linkbutton">搜索请求</a></td>
+            </div>
+        </div>
+
+
+        <div class="split-line"  data-label="模拟水平线" >
+            <span class="line"></span>
+            <a class="pointer tip" href="javascript:void(0)">+ 请求条件</a>
+        </div>
+
+        <textarea id="NewsIntro" name="NewsIntro"   style="width:1000px; height:200px;" placeholder="请求输入..." ></textarea>
+
+
+        <div style="margin: 10px 0">
+                <table cellpadding="3">
+                    <tr>
+                        <td height="30">环境:</td>
+                        <td>
+                            <select class="easyui-combobox" style="width: 153px" data-options="panelHeight:'auto'" name="language">
+                                <option value="vi">请选择</option>
+                                <option value="10.221.147.32">10.221.147.32</option>
+                            </select>
+                        </td>
+                        <td width="70" align="right">模块:</td>
+                        <td>
+                            <select class="easyui-combobox" style="width: 153px" data-options="panelHeight:'auto'"  name="language">
+                                <option value="vi">请选择</option>
+                                <option value="10.221.147.32">10.221.147.32</option>
+                            </select>
+                        </td>
+                        <td width="70" align="right">服务名:</td>
+                        <td>
+                            <select class="easyui-combobox" style="width: 153px" data-options="panelHeight:'auto'" name="language">
+                                <option value="vi">请选择</option>
+                                <option value="10.221.147.32">10.221.147.32</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>报文头:</td>
+                        <td>
+                            <input class="easyui-textbox" type="text" name="name" />
+                        </td>
+                        <td></td>
+                        <td>
+                            <input id="sb" class="easyui-switchbutton"
+                                   checked style="width:152px;height:30px"
+                                   data-options="onText:'开启DEBUG',offText:'关闭DEBUG'"/>
+                        </td>
+                        <td></td>
+                        <td align="right"><a href="#" class="easyui-linkbutton">模拟执行</a></td>
+                    </tr>
+                </table>
+        </div>
+
+        <textarea  name="NewsIntro"   style="width:1000px; height:200px;" placeholder="返回结果..." ></textarea>
+        <div class="moni-result">
+            <span class="marginR10">提示:</span>
+            <span class="red">结果一致</span>
+            <span class="moni-result-download">下载执行结果</span>
+        </div>
+
+
+        <div class="split-line"  data-label="模拟水平线" >
+            <span class="line"></span>
+            <a class="pointer tip" href="javascript:void(0)">+ 展开</a>
+        </div>
+
+        <div class="trace-result">
+            <div style="font-size: 20px;display: inline-block;">DPRICE</div>
+            <span style="margin:0  200px 0 30px">price-demo.xml</span>
+            <span class="moni-result-download">下载TRACE</span>
+        </div>
+
+        <div class="cfg-field-area">
+            <input class="easyui-checkbox" data-options="labelWidth:'50px'" name="fruit1" value="Apple" label="节点1:">
+            <span class="marginLR15"></span>
+            <input class="easyui-checkbox" data-options="labelWidth:'50px'" name="fruit2" value="Apple" label="节点2:">
+            <span class="marginLR15"></span>
+            <input class="easyui-checkbox" data-options="labelWidth:'50px'" name="fruit3" value="Apple" label="节点3:">
+            <span class="marginLR15"></span>
+            <input class="easyui-checkbox" data-options="labelWidth:'50px'" name="fruit4" value="Apple" label="节点4:">
+            <span class="marginLR15"></span>
+            <input class="easyui-checkbox" data-options="labelWidth:'50px'" name="fruit5" value="Apple" label="节点5:">
+            <span class="marginLR15"></span>
+            <input class="easyui-checkbox" data-options="labelWidth:'50px'" name="fruit6" value="Apple" label="节点6:">
+        </div>
+
+
+        <div class="trace-result-detail">
+            <div class="title">详情信息：</div>
+            <span class="oper-item" id="expand_tree_all">展开</span>
+            <span>|</span>
+            <span class="oper-item" id="collapse_tree_all">折叠</span>
+        </div>
+        <div id="wrapper"></div>
+
+    </div>
+
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

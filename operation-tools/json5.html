@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css"/>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
+</head>
+<body>
+<h2>Data</h2>
+<div id="json"></div>
+
+<script type="text/javascript">
+    var json = {"hey": "guy","anumber": 243,"anobject": {"whoa": "nuts","anarray": [1,2,"thr<h1>ee"], "more":"stuff"},"awesome": true,"bogus": false,"meaning": null, "japanese":"明日がある。", "link": "http://jsonview.com", "notLink": "http://jsonview.com is great"};
+    $(function() {
+        $("#json").JSONView(json);
+        // with options
+        $("#json-collasped").JSONView(json, { collapsed: true });
+    });
+</script>
+
+</body>
+</html>

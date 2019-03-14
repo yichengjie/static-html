@@ -1,0 +1,126 @@
+body{
+    background-color: #F2F4F7;
+    width: 1050px;
+    font-size: 14px;
+    /*font-family: "lucida grande",Helvetica,Tahoma,Verdana,Arial,Microsoft YaHei,simsun,sans-serif;*/
+    font-family: Microsoft YaHei,simsun,sans-serif;
+}
+.main_content{
+    margin: 10px 20px;
+    height: 100%;
+}
+/**查询条件相关 end*/
+.marginL5{
+    margin-left: 5px;
+}
+.marginR5{
+    margin-right: 5px;
+}
+.marginLR5{
+    margin :0 5px;
+}
+.marginL10{
+    margin-left: 10px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginL20{
+    margin-left: 20px;
+}
+.marginR10{
+    margin-right: 10px;
+}
+.marginLR10{
+    margin :0 10px;
+}
+.marginLR15{
+    margin :0 15px;
+}
+.marginLR20{
+    margin :0 20px;
+}
+.marginL15{
+    margin-left: 15px;
+}
+.marginR15{
+    margin-right: 15px;
+}
+.marginLR15{
+    margin :0 15px;
+}
+.marginT10{
+    margin-top: 10px;
+}
+.marginT15{
+    margin-top: 15px;
+}
+.marginT20{
+    margin-top: 20px;
+}
+.myhand{
+    cursor: pointer;
+}
+.gray { color:#CCCCCC;}
+.red { color:#FF0000;}
+.orange { color:#FF9900;}
+.blue { color:#006699;}
+.bold { font-weight:bold;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
+.txt_right{ text-align:right;}
+.inline_block{
+    display: inline-block !important;
+}
+.split-line {
+    position: relative;
+    display: block;
+    line-height: 50px;
+    height: 50px;
+}
+.split-line .line{
+    display: inline-block;
+    background-color: #00CCFF;
+    height: 1px;
+    width: 920px;
+}
+.split-line .tip{
+    position: absolute;
+    margin-left: 10px;
+    top: 4px;
+    /*left: 930px;*/
+    display: inline-block;
+    text-decoration: none;
+}
+.moni-result{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+}
+.moni-result-download{
+    cursor: pointer;
+    color: deepskyblue;
+}
+.trace-result{
+    background-color: #6F5499;
+    padding: 20px;
+    width: 1000px;
+}
+.cfg-field-area{
+    margin: 30px;
+}
+#wrapper .jsontree_tree {
+    margin-left: 0px;
+}
+.trace-result-detail{
+    margin-bottom: 15px;
+}
+.trace-result-detail .title{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+}
+.trace-result-detail .oper-item{
+    cursor: pointer;
+    color: deepskyblue;
+}
